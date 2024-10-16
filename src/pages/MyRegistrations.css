@@ -1,0 +1,21 @@
+/* src/pages/MyRegistrations.css */
+.my-registrations {
+    padding: 20px;
+  }
+  
+  .registrations-list {
+    margin-top: 20px;
+  }
+  
+  .registration-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
