@@ -39,7 +39,7 @@ Ensure you have Node.js and npm installed on your system. You can download them 
 1. **Clone the Repository**:
 
     ```bash
-    git clone https://github.com/yourusername/community-events-platform.git
+    git clone https://github.com/heniscoding/community-events-platform.git
     ```
 
 2. **Navigate to the Project Directory**:
