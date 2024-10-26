@@ -7,7 +7,6 @@ Welcome to the **Community Events Platform**! This web application is designed t
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Contributing](#contributing)
 - [Dependencies](#dependencies)
 - [License](#license)
 - [Author](#author)
