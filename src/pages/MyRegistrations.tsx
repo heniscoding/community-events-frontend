@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./MyRegistrations.css";
@@ -18,7 +18,8 @@ const MyRegistrations = () => {
   const [toast, setToast] = useState("");
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const fetchRegistrations = async () => {
+  // Memoize fetchRegistrations to avoid re-creation on each render
+  const fetchRegistrations = useCallback(async () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -40,7 +41,7 @@ const MyRegistrations = () => {
       console.error("Error fetching registrations:", error);
       showMessage("Error fetching registrations. Please try again.");
     }
-  };
+  }, []); // Empty dependency array means this function is only created once
 
   const handleUnregister = async (eventId: string) => {
     const token = localStorage.getItem("token");
@@ -56,7 +57,7 @@ const MyRegistrations = () => {
         },
       });
       showMessage("Unregistered successfully!");
-      fetchRegistrations();
+      fetchRegistrations(); // Refresh the list of registrations
     } catch (error) {
       console.error("Error unregistering from event:", error);
       showMessage("Error unregistering from the event. Please try again.");
@@ -74,7 +75,7 @@ const MyRegistrations = () => {
 
   useEffect(() => {
     fetchRegistrations();
-  }, [fetchRegistrations]);
+  }, [fetchRegistrations]); // Add fetchRegistrations as a dependency
 
   return (
     <div className="my-registrations-container">
