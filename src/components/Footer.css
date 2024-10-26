@@ -1,0 +1,25 @@
+.home-footer {
+  text-align: center;
+  background-color: #282c34;
+  color: white;
+  padding: 10px 0;
+  font-size: 0.8rem;
+}
+
+.social-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-links li a {
+  color: #ffe500;
+  text-decoration: none;
+}

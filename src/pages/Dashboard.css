@@ -1,58 +1,62 @@
 .dashboard {
-    padding: 40px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  max-width: 90%;
+  margin: 40px auto;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1;
 }
 
 .dashboard h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 2rem;
+  color: #333;
 }
 
 .dashboard h2 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #555;
 }
 
 .dashboard p {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.dashboard ul a {
-    text-decoration: none;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
 }
 
 .dashboard ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.dashboard ul a {
+  text-decoration: none;
 }
 
 .dashboard ul li {
-    margin: 10px 0;
-    background: #fff;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 12px 0;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #4285f4;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
 }
 
-.dashboard .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.dashboard .btn:hover {
-    background-color: #0056b3;
+.dashboard ul li:hover {
+  background-color: #1868e8;
 }

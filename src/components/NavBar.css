@@ -1,53 +1,120 @@
 .navbar {
   background-color: #282c34;
-  padding: 1rem;
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.navbar ul {
+.navbar-logo {
+  font-family: "Vidaloka", serif;
+  font-style: normal;
+  font-size: 1.4rem !important;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.navbar-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.burger-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-menu {
   list-style: none;
   display: flex;
   gap: 1rem;
-  justify-content: flex-end;
   align-items: center;
-  margin: 5px 10px;
+  margin: 0;
 }
 
-.navbar a {
+.navbar-menu.open {
+  display: block;
+}
+
+.navbar a,
+.navbar button {
   color: white;
   text-decoration: none;
   font-size: 0.8rem;
 }
 
+.navbar-menu a.active {
+  color: #ffe500;
+  font-weight: bold;
+}
+
 .navbar button {
-  background: #069717;
+  background: #282c34;
   color: white;
   border: none;
   cursor: pointer;
   padding: 5px 10px;
-  font-weight: bold;
-  font-size: 0.8rem;
 }
 
 .logout-overlay {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%; 
-  background-color: rgba(0, 0, 0, 0.8); 
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 999;
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .logout-popup {
-  background-color: #069717; 
-  color: white; 
-  padding: 10px;
+  font-size: 0.8rem;
+  background-color: #b94343;
+  color: white;
+  padding: 8px 15px;
   z-index: 1000;
-  transition: opacity 0.5s ease-in-out; 
-  text-align: center; 
-  max-width: 300px; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #282c34;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .navbar-menu.open {
+    display: flex;
+  }
+
+  .navbar-menu li {
+    text-align: center;
+  }
 }

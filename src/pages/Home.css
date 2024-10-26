@@ -1,0 +1,128 @@
+.home {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home-header {
+  text-align: center;
+  padding: 25px 15px;
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  color: #2c3754;
+  max-width: 100%;
+  background-color: #ededed;
+}
+
+.home-header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.auth-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.caa-button {
+  background-color: #009c43;
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 10px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.events-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.latest {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.events-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+}
+
+.event-item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: calc(30% - 20px);
+  margin: 5px;
+  padding: 0 0 10px 0;
+  border: 1px solid #ddd;
+  background-color: #2c3754;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: white;
+  position: relative;
+}
+
+.event-item {
+  transition: transform 1s;
+}
+
+.event-item:hover {
+  transform: scale(1.01);
+}
+
+.info-item {
+  padding: 5px 0;
+}
+
+.home-card-details {
+  padding: 15px;
+  padding-bottom: 60px;
+}
+
+.home-card-details h3 {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  color: #ffe500;
+}
+
+.home-card-details p {
+  margin: 5px 0;
+  font-size: 0.8rem;
+}
+
+.event-item:hover {
+  background-color: #212a3f;
+}
+
+.event-link {
+  display: inline-block;
+  padding: 15px 15px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
+}

@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './Register.css'; // Optional CSS file for styling
-import { useNavigate } from 'react-router-dom'; // Use useNavigate instead
+import React, { useState } from "react";
+import axios from "axios";
+import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate(); // For navigation
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
+    setLoading(true);
+
+    if (!username || !email || !password) {
+      setError("Please fill in all fields");
+      setLoading(false);
+      return;
+    }
 
     try {
-      await axios.post('http://localhost:5000/api/register', {
+      await axios.post("http://localhost:5000/api/register", {
+        username,
         email,
         password,
       });
 
-      // Redirect to login page after successful registration
-      navigate('/login'); // Change this to use navigate
+      navigate("/login");
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
-        setError(err.response?.data.message || 'Error during registration');
+        setError(err.response?.data.message || "Error during registration");
       } else {
-        setError('Server error');
+        setError("Server error");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -34,6 +45,16 @@ const Register = () => {
     <div className="register-container">
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -55,7 +76,15 @@ const Register = () => {
           />
         </div>
         {error && <div className="error-message">{error}</div>}
-        <button type="submit" className="btn">Register</button>
+        {loading ? (
+          <button type="button" className="btn" disabled>
+            Registering...
+          </button>
+        ) : (
+          <button type="submit" className="btn">
+            Register
+          </button>
+        )}
       </form>
     </div>
   );

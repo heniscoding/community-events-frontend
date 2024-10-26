@@ -1,39 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './Login.css';
-import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../AuthContext';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./Login.css";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     try {
-      const response = await axios.post('http://localhost:5000/api/login', {
+      const response = await axios.post("http://localhost:5000/api/login", {
         email,
         password,
       });
 
-      login(response.data.token, response.data.role, email);
+      const { token, role, username } = response.data;
+
+      login(token, role, email, username);
 
       setShowPopup(true);
 
       setTimeout(() => {
-        navigate('/dashboard');
+        navigate("/dashboard");
       }, 1000);
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
-        setError(err.response?.data.message || 'Invalid credentials');
+        setError(err.response?.data.message || "Invalid credentials");
       } else {
-        setError('Server error');
+        setError("Server error");
       }
     }
   };
@@ -78,7 +80,9 @@ const Login = () => {
             />
           </div>
           {error && <div className="error-message">{error}</div>}
-          <button type="submit" className="btn">Login</button>
+          <button type="submit" className="btn">
+            Login
+          </button>
         </form>
 
         <div className="register-link">
@@ -87,10 +91,8 @@ const Login = () => {
 
         {showPopup && (
           <div className="popup-overlay">
-          <div className="popup-message">
-            Login successful!
+            <div className="popup-message">Login successful!</div>
           </div>
-        </div>
         )}
       </div>
     </div>
