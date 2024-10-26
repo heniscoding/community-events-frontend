@@ -74,7 +74,7 @@ const MyRegistrations = () => {
 
   useEffect(() => {
     fetchRegistrations();
-  }, []);
+  }, [fetchRegistrations]);
 
   return (
     <div className="my-registrations-container">

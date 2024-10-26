@@ -18,7 +18,6 @@ const EventList = () => {
   const [eventType, setEventType] = useState("all");
   const [eventFetchError, setEventFetchError] = useState("");
   const [registrationFetchError, setRegistrationFetchError] = useState("");
-  const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchEvents = async () => {
