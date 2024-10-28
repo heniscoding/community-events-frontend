@@ -2,6 +2,8 @@
 
 Welcome to the **Community Events Platform**! This web application is designed to help users explore, register for, and manage local community events. It allows event organizers to create and promote events, while community members can easily find and participate in events that interest them.
 
+A hosted version of the site can be found at [community-events.henryalderslade.com](https://community-events.henryalderslade.com/).
+
 ## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
@@ -53,7 +55,15 @@ Ensure you have Node.js and npm installed on your system. You can download them 
     npm install
     ```
 
-4. **Start the Application**:
+4. **Set up Environment Variables**:
+
+    Create a `.env` file in the root directory and add the following variables:
+
+    ```env
+    REACT_APP_API_URL=http://localhost:5000
+    ```
+    
+5. **Start the Application**:
 
     ```bash
     npm start
@@ -79,7 +89,7 @@ Once you have the platform up and running, you can use it as follows:
 ## Features
 
 - **User Authentication**: Users can register, log in, and maintain a session to view or manage events.
-- **Create and Manage Events**: Event organizers can create, update, or delete events through a protected dashboard.
+- **Create and Manage Events**: Event organizers can create events through a protected dashboard.
 - **Responsive Design**: The platform is fully responsive, ensuring accessibility across devices.
 - **Notification Popups**: Success or error messages are presented as notifications for better user experience.
 
