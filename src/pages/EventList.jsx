@@ -21,9 +21,11 @@ const EventList = () => {
   const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/events");
+      const response = await axios.get(`${API_URL}/api/events`);
       console.log(response.data);
       setEvents(response.data.events);
       setFilteredEvents(response.data.events);
@@ -46,7 +48,7 @@ const EventList = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/events/my-registrations",
+        `${API_URL}/api/events/my-registrations`,
         {
           headers: {
             "x-auth-token": token,

@@ -15,23 +15,22 @@ const EventDetails = () => {
   const [isRegistered, setIsRegistered] = useState<boolean>(false);
   const [randomEvents, setRandomEvents] = useState<any[]>([]);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const fetchEventDetails = useCallback(async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/events/${eventId}`
-      );
+      const response = await axios.get(`${API_URL}/api/events/${eventId}`);
       setEvent(response.data);
       setLoading(false);
     } catch (err) {
       setError("Error fetching event details");
       setLoading(false);
     }
-  }, [eventId]);
+  }, [API_URL, eventId]);
 
   const fetchRandomEvents = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/events");
-      console.log(response.data);
+      const response = await axios.get(`${API_URL}/api/events`);
       if (response.data && Array.isArray(response.data.events)) {
         const otherEvents = response.data.events.filter(
           (e: any) => e._id !== eventId
@@ -45,7 +44,7 @@ const EventDetails = () => {
     } catch (error) {
       console.error("Error fetching random events:", error);
     }
-  }, [eventId]);
+  }, [API_URL, eventId]);
 
   const checkUserRegistration = useCallback(async () => {
     const token = localStorage.getItem("token");
@@ -53,7 +52,7 @@ const EventDetails = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/events/my-registrations",
+        `${API_URL}/api/events/my-registrations`,
         {
           headers: {
             "x-auth-token": token,
@@ -68,7 +67,7 @@ const EventDetails = () => {
       console.error("Error checking registration status:", error);
       setMessage("Error checking registration status.");
     }
-  }, [eventId]);
+  }, [API_URL, eventId]);
 
   useEffect(() => {
     fetchEventDetails();
@@ -97,7 +96,7 @@ const EventDetails = () => {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/events/${eventId}/signup`,
+        `${API_URL}/api/events/${eventId}/signup`,
         {},
         {
           headers: {
@@ -125,7 +124,7 @@ const EventDetails = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/events/${eventId}/signup`, {
+      await axios.delete(`${API_URL}/api/events/${eventId}/signup`, {
         headers: {
           "x-auth-token": token,
         },
