@@ -17,10 +17,10 @@ const Login = () => {
     setError("");
   
     try {
-      const response = await axios.post("https://community-events-backend-gv6v.onrender.com/api/login", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/login`, {
         email,
         password,
-      });
+      });      
   
       const { token, role, username } = response.data;
   
