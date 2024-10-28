@@ -53,7 +53,15 @@ Ensure you have Node.js and npm installed on your system. You can download them 
     npm install
     ```
 
-4. **Start the Application**:
+4. **Set up Environment Variables**:
+
+    Create a `.env` file in the root directory and add the following variables:
+
+    ```env
+    REACT_APP_API_URL=http://localhost:5000
+    ```
+    
+5. **Start the Application**:
 
     ```bash
     npm start
