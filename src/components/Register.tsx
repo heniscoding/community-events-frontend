@@ -11,6 +11,8 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -23,7 +25,7 @@ const Register = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/register", {
+      await axios.post(`${API_URL}/api/register`, {
         username,
         email,
         password,

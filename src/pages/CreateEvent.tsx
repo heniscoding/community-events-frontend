@@ -20,6 +20,8 @@ const CreateEvent = () => {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -91,7 +93,7 @@ const CreateEvent = () => {
 
       formData.append("image", eventImage);
 
-      await axios.post("http://localhost:5000/api/events", formData, {
+      await axios.post(`${API_URL}/api/events`, formData, {
         headers: {
           "x-auth-token": token,
           "Content-Type": "multipart/form-data",

@@ -17,10 +17,12 @@ const Home = () => {
       : description;
   };
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/events");
+        const response = await axios.get(`${API_URL}/api/events`);
 
         if (Array.isArray(response.data)) {
           const latestEvents = response.data
@@ -44,7 +46,7 @@ const Home = () => {
     };
 
     fetchEvents();
-  }, []);
+  }, [API_URL]);
 
   if (loading) return <Spinner />;
 
