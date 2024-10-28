@@ -87,7 +87,7 @@ Once you have the platform up and running, you can use it as follows:
 ## Features
 
 - **User Authentication**: Users can register, log in, and maintain a session to view or manage events.
-- **Create and Manage Events**: Event organizers can create, update, or delete events through a protected dashboard.
+- **Create and Manage Events**: Event organizers can create events through a protected dashboard.
 - **Responsive Design**: The platform is fully responsive, ensuring accessibility across devices.
 - **Notification Popups**: Success or error messages are presented as notifications for better user experience.
 
