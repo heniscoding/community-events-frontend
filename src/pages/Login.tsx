@@ -15,30 +15,32 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-
+  
     try {
-      const response = await axios.post("http://localhost:5000/api/login", {
+      const response = await axios.post("https://community-events-backend-gv6v.onrender.com/api/login", {
         email,
         password,
       });
-
+  
       const { token, role, username } = response.data;
-
+  
       login(token, role, email, username);
-
+  
       setShowPopup(true);
-
+  
       setTimeout(() => {
         navigate("/dashboard");
       }, 1000);
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
+        console.log(err.response);
         setError(err.response?.data.message || "Invalid credentials");
       } else {
         setError("Server error");
       }
     }
   };
+  
 
   useEffect(() => {
     let timer: NodeJS.Timeout;

@@ -22,6 +22,10 @@
   overflow: hidden;
 }
 
+.register-box h1 {
+  margin: 20px 0 20px 0;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
