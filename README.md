@@ -2,6 +2,8 @@
 
 Welcome to the **Community Events Platform**! This web application is designed to help users explore, register for, and manage local community events. It allows event organizers to create and promote events, while community members can easily find and participate in events that interest them.
 
+A hosted version of the site can be found at [community-events.henryalderslade.com]([https://nodejs.org/](https://community-events.henryalderslade.com/).
+
 ## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
