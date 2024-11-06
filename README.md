@@ -93,6 +93,21 @@ Once you have the platform up and running, you can use it as follows:
 - **Responsive Design**: The platform is fully responsive, ensuring accessibility across devices.
 - **Notification Popups**: Success or error messages are presented as notifications for better user experience.
 
+
+## Test Accounts
+
+You can use the following test accounts to explore the functionality of the platform:
+
+### Regular User Account
+- **Username**: user
+- **Email**: user@test.com
+- **Password**: 12345
+
+### Staff Account
+- **Username**: staff
+- **Email**: staff@test.com
+- **Password**: 12345
+
 ## Dependencies
 
 The following major dependencies are used in this project:
